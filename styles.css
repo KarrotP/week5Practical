@@ -72,14 +72,16 @@ body {
     position: absolute;
     left: 50%;
     bottom: 0%;
+    animation: helicopter-anim 8s infinite;
 }
 
 /** Exercise 1.4 - add animation properties to each of the following classes (see guidance) **/
 .sun-container {
-    width: 500px;
+    width: 550px;
     height: 100%;
     margin:auto;
     transform-origin: center bottom;
+    animation: sun-container 15s infinite linear;
 }
 
 .sun {
@@ -88,6 +90,7 @@ body {
     position: absolute;
     left: 0%;
     bottom: 0%;
+    animation: sun-colour 7.5s infinite linear;
 }
 
 .moon {
@@ -96,4 +99,108 @@ body {
     position:absolute;
     left:100%;
     bottom:0%;
+    animation: moon-rotation 15s infinite linear;
+}
+
+.slide-left {
+    animation: plane-fly 10s infinite linear;
+}
+
+.turbulence {
+    animation: turbulence 0.35s infinite;
+}
+
+.day-night {
+    animation: day-night-cycle 15s infinite linear;
+}
+
+@keyframes plane-fly {
+    from {
+        left: 0%;
+    }
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes turbulence {
+    0% {
+        top: 50%;
+    }
+    25% {
+        top: 45%;
+    }
+    50% {
+        top: 55%;
+    }
+    100% {
+        top: 50%
+    }
+}
+
+@keyframes helicopter-anim {
+    0% {
+        bottom: 0%;
+        left: 5%
+    }
+    30% {
+        bottom: 75%;
+        left: 10%;
+    }
+    60% {
+        bottom: 75%;
+        left: 80%;
+    }
+    100% {
+        bottom: 0%;
+        left: 85%;
+    }
+}
+
+@keyframes day-night-cycle {
+    0% {
+        background-color: rgb(65, 139, 169);
+    }
+    25% {
+        background-color: skyblue;
+    }
+    50% {
+        background-color: rgb(65, 139, 169);
+    }
+    75% {
+        background-color: rgb(8, 10, 39);
+    }
+    100% {
+        background-color: rgb(65, 139, 169);
+    }
+}
+
+@keyframes sun-container {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sun-colour {
+    0% {
+        color: rgb(244, 183, 16);
+    }
+    50% {
+        color: yellow;
+    }
+    100% {
+        color: rgb(244, 183, 16);
+    }
+}
+
+@keyframes moon-rotation {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
 }
